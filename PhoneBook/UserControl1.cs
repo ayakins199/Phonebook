@@ -93,7 +93,8 @@ namespace PhoneBook
                 {
                     Database db = new Database();
                     db.OpenConnection();
-                    string query = string.Format("SELECT FirstName, Surname, PhoneNumber FROM tbl_phonebook WHERE FirstName == '{0}' or Surname == {1} or PhoneNumber == '{2}'", txtQuery.Text, txtQuery.Text, txtQuery.Text);
+                    string term = txtQuery.Text.ToUpper();
+                    string query = string.Format("SELECT FirstName, Surname, PhoneNumber FROM tbl_phonebook WHERE FirstName == '{0}' or Surname == '{1}' or PhoneNumber == '{2}'", term, term, term);
                     SQLiteCommand sqlcmd = new SQLiteCommand(query, db.myConn);
                     SQLiteDataAdapter da = new SQLiteDataAdapter(sqlcmd);
                     DataSet ds = new DataSet();
