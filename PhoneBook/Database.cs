@@ -13,7 +13,11 @@ namespace PhoneBook
             if (!File.Exists("./PhoneBookDB.db"))
             {
                 SQLiteConnection.CreateFile("PhoneBookDB.db");
-                System.Console.WriteLine("Database created successfully");
+                OpenConnection();
+                string sql_query = "create table tbl_phonebook (userid  INTEGER PRIMARY KEY AUTOINCREMENT, FirstName Text, Surname Text, PhoneNumber int)";
+                SQLiteCommand cmd = new SQLiteCommand(sql_query, myConn);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
             }
         }
 
