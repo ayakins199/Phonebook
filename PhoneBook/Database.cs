@@ -5,11 +5,11 @@ namespace PhoneBook
 {
     class Database
     {
-        public SQLiteConnection myConn;
+        public SQLiteConnection myConn; 
 
         public Database()
         {
-            myConn = new SQLiteConnection("Data Source=PhoneBookDB.db");
+            myConn = new SQLiteConnection("Data Source=PhoneBookDB.db"); 
             if (!File.Exists("./PhoneBookDB.db"))
             {
                 SQLiteConnection.CreateFile("PhoneBookDB.db");
